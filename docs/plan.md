@@ -147,7 +147,7 @@ GitHub Actions workflow that runs lint, typecheck, and tests on push and pull
 request.
 
 **DoD**
-- Workflow runs automatically on push / PR and passes on the main branch
+- Workflow runs automatically on push / PR and passes on the pull request branch
 - A deliberate lint or test failure makes the workflow fail (verified once, then reverted)
 
 ## Dependencies
@@ -155,8 +155,8 @@ request.
 - T1 blocks everything else
 - T2 blocks T3–T8
 - T3 blocks T4, T5, T6, T7 (they extend the rendered list); T4–T7 are mutually independent after T3
-- T8 depends on T2 and is safest after T3 (needs real state changes to verify reload)
-- T9 and T10 can run any time after T3, ideally last
+- T8 depends on T2 for the storage boundary, and on T4–T6 for its DoD: verifying reload after add/edit/toggle/delete requires those operations to exist in the UI
+- T9 can run any time after T3, ideally last; T10 only requires T1 (it runs the scripts set up there) but is most useful once tests exist
 
 ## Risks
 
