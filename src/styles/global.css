@@ -1,0 +1,24 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  color: var(--color-text);
+  background: var(--color-background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text: #172033;
+  --color-text-muted: #526075;
+  --color-border: #dbe3ee;
+  --space-3: 0.75rem;
+  --space-6: 1.5rem;
+  --radius-md: 0.75rem;
+  --shadow-card: 0 0.75rem 2rem rgb(23 32 51 / 0.08);
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
